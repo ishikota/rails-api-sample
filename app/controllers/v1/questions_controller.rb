@@ -1,6 +1,6 @@
 class V1::QuestionsController < ApiController
   def index
-    questions = Question.all
+    questions = Question.all.page(params[:page]).per(params[:per_page])
     render json: questions
   end
 
